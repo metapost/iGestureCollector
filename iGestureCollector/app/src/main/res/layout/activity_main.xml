@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.haipengwang.igesturecollector.MainActivity">
+
+    <LinearLayout
+        android:id="@+id/sysinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:id="@+id/samplingrate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sampling rate:" />
+    </LinearLayout>
+
+    <GridLayout
+        android:id="@+id/personinfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/sysinfo"
+        android:background="@android:color/holo_orange_light"
+        android:columnCount="4"
+        android:rowCount="9">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:text="Sensors:" />
+
+        <LinearLayout
+            android:id="@+id/checkboxgroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="0"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkbox_acc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:allowUndo="true"
+                android:onClick="onCheckBoxClicked"
+                android:text="Acc" />
+
+            <CheckBox
+                android:id="@+id/checkbox_lacc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:allowUndo="true"
+                android:onClick="onCheckBoxClicked"
+                android:text="Linear Acc" />
+
+            <CheckBox
+                android:id="@+id/checkbox_gyro"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:allowUndo="true"
+                android:checked="true"
+                android:onClick="onCheckBoxClicked"
+                android:text="Gyro" />
+
+            <CheckBox
+                android:id="@+id/checkbox_mag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:allowUndo="true"
+                android:onClick="onCheckBoxClicked"
+                android:text="Mag" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="1"
+            android:text="Name:" />
+
+        <EditText
+            android:id="@+id/edittext_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="1"
+            android:inputType="textPersonName"
+            android:text="haipeng" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="2"
+            android:text="Gender:" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="2"
+            android:checkedButton="@+id/radio_male"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_male"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Male" />
+
+            <RadioButton
+                android:id="@+id/radio_female"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Female" />
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="3"
+            android:text="Age:" />
+
+        <EditText
+            android:id="@+id/edittext_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="3"
+            android:inputType="number"
+            android:maxLength="2"
+            android:text="25" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="4"
+            android:text="Mode:" />
+        <RadioGroup
+            android:id="@+id/radiogroup_mode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="4"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_sit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="Sit" />
+            <RadioButton
+                android:id="@+id/radio_stand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Stand" />
+            <RadioButton
+                android:id="@+id/radio_walk"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Walk" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_modality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="5"
+            android:text="Modality:" />
+        <RadioGroup
+            android:id="@+id/radiogroup_modality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="5"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_ind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="onRadioIndClicked"
+                android:text="Individual" />
+            <RadioButton
+                android:id="@+id/radio_seq"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                android:onClick="onRadioSeqClicked"
+                android:text="Sequence" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_seq"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="6"
+            android:text="Sequence: " />
+
+        <TextView
+            android:id="@+id/tv_seq_symbols"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="6"
+            android:text="aaa"
+            android:textAlignment="viewStart"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tv_gesture"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="7"
+            android:text="Gesture:"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="7"
+            android:scrollbarAlwaysDrawHorizontalTrack="true"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_O"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="O" />
+            <RadioButton
+                android:id="@+id/radio_V"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="V" />
+
+            <RadioButton
+                android:id="@+id/radio_C"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="C" />
+            <RadioButton
+                android:id="@+id/radio_e"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="e" />
+            <RadioButton
+                android:id="@+id/radio_U"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="U" />
+            <RadioButton
+                android:id="@+id/radio_W"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="W" />
+            <RadioButton
+                android:id="@+id/radio_y"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="y" />
+
+            <RadioButton
+                android:id="@+id/radio_x"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x" />
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/tv_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_row="8"
+            android:text="Speed:" />
+
+        <RadioGroup
+            android:id="@+id/radiogroup_speed"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_row="8"
+            android:checkedButton="@+id/radio_normal"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radio_normal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Normal" />
+
+            <RadioButton
+                android:id="@+id/radio_slow"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Slow" />
+
+            <RadioButton
+                android:id="@+id/radio_fast"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Fast" />
+
+            <RadioButton
+                android:id="@+id/radio_mixed"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mixed" />
+        </RadioGroup>
+
+    </GridLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@id/personinfo"
+        android:layout_weight="1"
+        android:background="@android:color/holo_orange_dark"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_collectdata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:enabled="false"
+            android:text="Touch here to collect data"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="top|start"
+            android:textAllCaps="false" />
+    </LinearLayout>
+
+</RelativeLayout>
